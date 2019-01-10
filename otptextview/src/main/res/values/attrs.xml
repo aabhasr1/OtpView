@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="OtpTextView">
+        <attr name="android:textColor" />
+        <attr name="otp" format="string" />
+        <attr name="length" format="integer" />
+        <attr name="width" format="dimension" />
+        <attr name="height" format="dimension" />
+        <attr name="padding" format="dimension" />
+        <attr name="padding_left" format="dimension" />
+        <attr name="padding_right" format="dimension" />
+        <attr name="padding_top" format="dimension" />
+        <attr name="padding_bottom" format="dimension" />
+        <attr name="bar_height" format="dimension" />
+        <attr name="bar_padding" format="dimension" />
+        <attr name="otp_text_size" format="dimension" />
+        <attr name="bar_active_color" format="color" />
+        <attr name="bar_inactive_color" format="color" />
+        <attr name="bar_error_color" format="color" />
+        <attr name="bar_success_color" format="color" />
+    </declare-styleable>
+</resources>

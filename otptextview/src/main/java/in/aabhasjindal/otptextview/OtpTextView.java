@@ -68,6 +68,7 @@ public class OtpTextView extends FrameLayout {
     private void generateViews(TypedArray styles, AttributeSet attrs) {
         itemViews = new ArrayList<>();
         if (length > 0) {
+            int otp = styles.getInt(R.styleable.OtpTextView_otp,0);
             int width = (int) styles.getDimension(R.styleable.OtpTextView_width, Utils.getPixels(context, DEFAULT_WIDTH));
             int height = (int) styles.getDimension(R.styleable.OtpTextView_height, Utils.getPixels(context, DEFAULT_HEIGHT));
             int space = (int) styles.getDimension(R.styleable.OtpTextView_padding, Utils.getPixels(context, DEFAULT_SPACE));
@@ -81,7 +82,7 @@ public class OtpTextView extends FrameLayout {
                 int spaceInPx = Utils.getPixels(context, space);
                 params.setMargins(spaceInPx, spaceInPx, spaceInPx, spaceInPx);
             } else {
-                params.setMargins(Utils.getPixels(context, spaceLeft), Utils.getPixels(context, spaceRight), Utils.getPixels(context, spaceTop),
+                params.setMargins(Utils.getPixels(context, spaceLeft), Utils.getPixels(context, spaceTop), Utils.getPixels(context, spaceRight),
                         Utils.getPixels(context, spaceBottom));
             }
 
@@ -104,6 +105,9 @@ public class OtpTextView extends FrameLayout {
                 itemView.setViewState(ItemView.INACTIVE);
                 linearLayout.addView(itemView, i, params);
                 itemViews.add(itemView);
+            }
+            if (otp!=0) {
+                setOTP(String.valueOf(otp));
             }
         } else {
             throw new IllegalStateException("Please specify the length of the otp view");
@@ -194,6 +198,10 @@ public class OtpTextView extends FrameLayout {
                 itemView.setViewState(ItemView.ERROR);
             }
         }
+    }
+
+    public void resetError() {
+        setFocus(getOTP().length());
     }
 
     public void showSuccessError() {

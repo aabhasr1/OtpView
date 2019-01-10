@@ -4,19 +4,19 @@ import android.content.Context;
 import android.text.InputType;
 import android.util.AttributeSet;
 
-public class OTPEditText extends android.support.v7.widget.AppCompatEditText {
+class OTPChildEditText extends android.support.v7.widget.AppCompatEditText {
 
-    public OTPEditText(Context context) {
+    public OTPChildEditText(Context context) {
         super(context);
         init(context);
     }
 
-    public OTPEditText(Context context, AttributeSet attrs) {
+    public OTPChildEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public OTPEditText(Context context, AttributeSet attrs, int defStyleAttr) {
+    public OTPChildEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }

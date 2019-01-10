@@ -31,7 +31,7 @@ public class OtpTextView extends FrameLayout {
 
     private Context context;
     private List<ItemView> itemViews;
-    private OTPEditText otpEditText;
+    private OTPChildEditText otpChildEditText;
     private OTPListener otpListener;
 
     private int length;
@@ -87,11 +87,11 @@ public class OtpTextView extends FrameLayout {
 
             LinearLayout.LayoutParams editTextLayoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             editTextLayoutParams.gravity = Gravity.CENTER;
-            otpEditText = new OTPEditText(context);
-            otpEditText.setFilters(new InputFilter[]{getFilter()
+            otpChildEditText = new OTPChildEditText(context);
+            otpChildEditText.setFilters(new InputFilter[]{getFilter()
                     , new InputFilter.LengthFilter(length)});
-            setTextWatcher(otpEditText);
-            addView(otpEditText, editTextLayoutParams);
+            setTextWatcher(otpChildEditText);
+            addView(otpChildEditText, editTextLayoutParams);
 
 
             LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -110,8 +110,8 @@ public class OtpTextView extends FrameLayout {
         }
     }
 
-    private void setTextWatcher(OTPEditText otpEditText) {
-        otpEditText.addTextChangedListener(new TextWatcher() {
+    private void setTextWatcher(OTPChildEditText otpChildEditText) {
+        otpChildEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -183,8 +183,8 @@ public class OtpTextView extends FrameLayout {
     }
 
     public void requestFocusOTP() {
-        if (otpEditText != null) {
-            otpEditText.requestFocus();
+        if (otpChildEditText != null) {
+            otpChildEditText.requestFocus();
         }
     }
 
@@ -202,5 +202,13 @@ public class OtpTextView extends FrameLayout {
                 itemView.setViewState(ItemView.SUCCESS);
             }
         }
+    }
+
+    public void setOTP(String otp) {
+        otpChildEditText.setText(otp);
+    }
+
+    public void getOTP() {
+        otpChildEditText.getText();
     }
 }

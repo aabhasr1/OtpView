@@ -123,8 +123,11 @@ public class OtpTextView extends FrameLayout {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length()==length && otpListener!=null){
-                    otpListener.onOTPComplete(s.toString());
+                if (otpListener!=null){
+                    otpListener.onInteractionListener();
+                    if (s.length()==length){
+                        otpListener.onOTPComplete(s.toString());
+                    }
                 }
                 setOTP(s);
                 setFocus(s.length());

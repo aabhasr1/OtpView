@@ -22,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
         otpTextView.requestFocusOTP();
         otpTextView.setOtpListener(new OTPListener() {
             @Override
+            public void onInteractionListener() {
+
+            }
+
+            @Override
             public void onOTPComplete(String otp) {
                 Toast.makeText(MainActivity.this, "The OTP is " + otp, Toast.LENGTH_SHORT).show();
             }

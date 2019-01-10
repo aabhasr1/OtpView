@@ -3,6 +3,7 @@ package in.aabhasjindal.otptextview;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.res.ResourcesCompat;
@@ -61,6 +62,8 @@ public class ItemView extends FrameLayout {
         float barHeight = styles.getDimension(R.styleable.OtpTextView_bar_height, defaultHeight);
         int barPadding = styles.getInt(R.styleable.OtpTextView_bar_padding, DEFAULT_BAR_PADDING);
         Float otpTextSize = styles.getDimension(R.styleable.OtpTextView_otp_text_size, defaultOtpTextSize);
+
+        String otpTextTypeFace = styles.getString(R.styleable.OtpTextView_text_typeface);
         barActiveColor = styles.getColor(R.styleable.OtpTextView_bar_active_color
                 , ResourcesCompat.getColor(context.getResources(), R.color.black, null));
         barInactiveColor = styles.getColor(R.styleable.OtpTextView_bar_inactive_color
@@ -74,6 +77,14 @@ public class ItemView extends FrameLayout {
         textViewParams.gravity = Gravity.CENTER;
         textView = new TextView(context);
         textView.setGravity(Gravity.CENTER);
+        if (otpTextTypeFace!=null) {
+            try {
+                Typeface tf = Typeface.createFromAsset(context.getAssets(), otpTextTypeFace);
+                textView.setTypeface(tf);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
         textView.setTextColor(textColor);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, otpTextSize);
         this.addView(textView, textViewParams);

@@ -18,5 +18,6 @@
         <attr name="bar_inactive_color" format="color" />
         <attr name="bar_error_color" format="color" />
         <attr name="bar_success_color" format="color" />
+        <attr name="text_typeface" format="string" />
     </declare-styleable>
 </resources>

@@ -208,7 +208,9 @@ public class OtpTextView extends FrameLayout {
         otpChildEditText.setText(otp);
     }
 
-    public void getOTP() {
-        otpChildEditText.getText();
+    public String getOTP() {
+        if (otpChildEditText!=null && otpChildEditText.getText()!=null)
+            return otpChildEditText.getText().toString();
+        return null;
     }
 }

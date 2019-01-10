@@ -1,0 +1,14 @@
+build/
+.gradle
+target
+out
+gen-external-apklibs
+*.iml
+.idea
+!.idea/codeStyleSettings.xml
+META-INF
+local.properties
+.DS_Store
+*.apk
+*.alloc
+*.hprof

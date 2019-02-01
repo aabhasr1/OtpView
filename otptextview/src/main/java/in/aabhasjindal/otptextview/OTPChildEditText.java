@@ -34,11 +34,9 @@ class OTPChildEditText extends android.support.v7.widget.AppCompatEditText {
     public void onSelectionChanged(int start, int end) {
 
         CharSequence text = getText();
-        if (text != null) {
-            if (start != text.length() || end != text.length()) {
-                setSelection(text.length(), text.length());
-                return;
-            }
+        if (text != null && start != text.length() || end != text.length()) {
+            setSelection(text.length(), text.length());
+            return;
         }
 
         super.onSelectionChanged(start, end);

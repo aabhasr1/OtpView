@@ -3,16 +3,28 @@
     <declare-styleable name="OtpTextView">
         <attr name="android:textColor" />
         <attr name="otp" format="string" />
+        <attr name="hide_otp" format="boolean" />
+        <attr name="hide_otp_drawable" format="reference" />
         <attr name="length" format="integer" />
         <attr name="width" format="dimension" />
         <attr name="height" format="dimension" />
-        <attr name="padding" format="dimension" />
-        <attr name="padding_left" format="dimension" />
-        <attr name="padding_right" format="dimension" />
-        <attr name="padding_top" format="dimension" />
-        <attr name="padding_bottom" format="dimension" />
+        <attr name="box_margin" format="dimension" />
+        <attr name="box_margin_left" format="dimension" />
+        <attr name="box_margin_right" format="dimension" />
+        <attr name="box_margin_top" format="dimension" />
+        <attr name="box_margin_bottom" format="dimension" />
         <attr name="bar_height" format="dimension" />
-        <attr name="bar_padding" format="dimension" />
+        <attr name="bar_enabled" format="boolean" />
+        <attr name="otp_box_background" format="reference" />
+        <attr name="otp_box_background_active" format="reference" />
+        <attr name="otp_box_background_inactive" format="reference" />
+        <attr name="otp_box_background_success" format="reference" />
+        <attr name="otp_box_background_error" format="reference" />
+        <attr name="bar_margin" format="dimension" />
+        <attr name="bar_margin_bottom" format="dimension" />
+        <attr name="bar_margin_right" format="dimension" />
+        <attr name="bar_margin_left" format="dimension" />
+        <attr name="bar_margin_top" format="dimension" />
         <attr name="otp_text_size" format="dimension" />
         <attr name="bar_active_color" format="color" />
         <attr name="bar_inactive_color" format="color" />

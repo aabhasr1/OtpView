@@ -6,7 +6,7 @@
   <a href="https://travis-ci.org/aabhasr1/OtpView"><img src="https://travis-ci.com/aabhasr1/OtpView.svg?branch=master"></a>
   <a href="https://jitpack.io/#aabhasr1/OtpView"><img src="https://jitpack.io/v/aabhasr1/OtpView.svg"></a>
   <a href="https://jitpack.io/#aabhasr1/OtpView"><img src="https://jitpack.io/v/aabhasr1/OtpView/month.svg"></a>
-  <a href="[https://android-arsenal.com/details/1/7514](https://android-arsenal.com/details/1/7514)"><img src="https://img.shields.io/badge/Android%20Arsenal-OtpView-green.svg?style=flat](https://img.shields.io/badge/Android%20Arsenal-OtpView-green.svg?style=flat)"></a>
+  <a href="https://android-arsenal.com/details/1/7514"><img src="https://img.shields.io/badge/Android%20Arsenal-OtpView-green.svg?style=flat"></a>
   <a href="LICENSE">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
   </p>

@@ -1,5 +1,6 @@
 package in.aabhasjindal.otptextview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
@@ -237,5 +238,12 @@ public class OtpTextView extends FrameLayout {
         if (otpChildEditText != null && otpChildEditText.getText() != null)
             return otpChildEditText.getText().toString();
         return null;
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    @Override
+    public void setOnTouchListener(OnTouchListener l) {
+        super.setOnTouchListener(l);
+        otpChildEditText.setOnTouchListener(l);
     }
 }

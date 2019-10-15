@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.InputType;
 import android.util.AttributeSet;
 
-class OTPChildEditText extends android.support.v7.widget.AppCompatEditText {
+class OTPChildEditText extends androidx.appcompat.widget.AppCompatEditText {
 
     public OTPChildEditText(Context context) {
         super(context);

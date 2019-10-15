@@ -1,14 +1,14 @@
-package in.aabhasjindal.otptextview;
+package `in`.aabhasjindal.otptextview
 
-public interface OTPListener {
+interface OTPListener {
     /**
      * Callback Fired when user starts typing in the OTP/PIN box.
      */
-    void onInteractionListener();
+    fun onInteractionListener()
 
     /**
      * @param otp Filled OTP
      * Callback Fired when user has completed filling the OTP/PIN.
      */
-    void onOTPComplete(String otp);
+    fun onOTPComplete(otp: String)
 }

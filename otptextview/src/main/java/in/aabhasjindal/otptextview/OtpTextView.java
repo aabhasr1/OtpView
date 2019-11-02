@@ -3,8 +3,6 @@ package in.aabhasjindal.otptextview;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.Spanned;
@@ -14,6 +12,9 @@ import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,14 +139,14 @@ public class OtpTextView extends FrameLayout {
              */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                setOTP(s);
+                setFocus(s.length());
                 if (otpListener != null) {
                     otpListener.onInteractionListener();
                     if (s.length() == length) {
                         otpListener.onOTPComplete(s.toString());
                     }
                 }
-                setOTP(s);
-                setFocus(s.length());
             }
 
             @Override

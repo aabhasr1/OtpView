@@ -127,14 +127,14 @@ class OtpTextView : FrameLayout {
              * @param count
              */
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                setOTP(s)
+                setFocus(s.length)
                 otpListener?.let { otpListener ->
                     otpListener.onInteractionListener()
                     if (s.length == length) {
                         otpListener.onOTPComplete(s.toString())
                     }
                 }
-                setOTP(s)
-                setFocus(s.length)
             }
 
             override fun afterTextChanged(s: Editable) {

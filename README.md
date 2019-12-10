@@ -34,10 +34,16 @@ allprojects {
 Step 2. Add the dependency
 ```java
 dependencies {
-        implementation 'com.github.aabhasr1:OtpView:<latest version>'
+        implementation 'com.github.aabhasr1:OtpView:v1.1.2-ktx' // kotlin
 }
   ```
-
+  or
+```java
+dependencies {
+        implementation 'com.github.aabhasr1:OtpView:v1.1.2'
+}
+  ```
+ 
 ## How to use the library?
 Just add the following to your **xml** design to show the otpview
 ```xml

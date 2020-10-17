@@ -10,6 +10,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 
 class ItemView : FrameLayout {
@@ -27,6 +28,7 @@ class ItemView : FrameLayout {
     private var hideOTPDrawable: Int = 0
     private var defaultOTPDrawable: Int = 0
     private var hideOTP = false
+    private var hideBarAfterTextEntered = false
 
     constructor(context: Context) : super(context) {
         init(null)
@@ -76,6 +78,7 @@ class ItemView : FrameLayout {
         barInactiveColor = styles.getColor(R.styleable.OtpTextView_bar_inactive_color, ResourcesCompat.getColor(context.resources, R.color.grey, null))
         barErrorColor = styles.getColor(R.styleable.OtpTextView_bar_error_color, ResourcesCompat.getColor(context.resources, R.color.red, null))
         barSuccessColor = styles.getColor(R.styleable.OtpTextView_bar_success_color, ResourcesCompat.getColor(context.resources, R.color.black, null))
+        hideBarAfterTextEntered = styles.getBoolean(R.styleable.OtpTextView_hide_bar_after_text_entered, false)
 
         this.setBackgroundResource(boxBackgroundColor)
 
@@ -147,6 +150,11 @@ class ItemView : FrameLayout {
                 view?.setBackgroundColor(barSuccessColor)
                 this.setBackgroundResource(boxBackgroundColorSuccess)
             }
+            TEXT_ENTERED -> {
+                this.setBackgroundResource(boxBackgroundColorInactive)
+                if (hideBarAfterTextEntered)  // make bottom bar color transparent if hide_bar_after_text_entered is enabled
+                    view?.setBackgroundColor(ContextCompat.getColor(context,android.R.color.transparent))
+            }
             else -> {
             }
         }
@@ -157,6 +165,7 @@ class ItemView : FrameLayout {
         const val INACTIVE = 0
         const val ERROR = -1
         const val SUCCESS = 2
+        const val TEXT_ENTERED = 3 /* added new status to handle bottom bar visibility */
 
         private const val DEFAULT_BAR_HEIGHT = 2f
         private const val DEFAULT_OTP_TEXT_SIZE = 24f

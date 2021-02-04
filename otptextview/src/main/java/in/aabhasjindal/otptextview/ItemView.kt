@@ -16,6 +16,7 @@ class ItemView : FrameLayout {
 
     private var textView: TextView? = null
     private var view: View? = null
+    private var barFilledColor: Int = 0
     private var barActiveColor: Int = 0
     private var barInactiveColor: Int = 0
     private var barErrorColor: Int = 0
@@ -72,6 +73,7 @@ class ItemView : FrameLayout {
         boxBackgroundColorInactive = styles.getResourceId(R.styleable.OtpTextView_otp_box_background_inactive, boxBackgroundColor)
         boxBackgroundColorSuccess = styles.getResourceId(R.styleable.OtpTextView_otp_box_background_success, boxBackgroundColor)
         boxBackgroundColorError = styles.getResourceId(R.styleable.OtpTextView_otp_box_background_error, boxBackgroundColor)
+        barFilledColor = styles.getColor(R.styleable.OtpTextView_bar_filled_color, ResourcesCompat.getColor(context.resources, R.color.black, null))
         barActiveColor = styles.getColor(R.styleable.OtpTextView_bar_active_color, ResourcesCompat.getColor(context.resources, R.color.black, null))
         barInactiveColor = styles.getColor(R.styleable.OtpTextView_bar_inactive_color, ResourcesCompat.getColor(context.resources, R.color.grey, null))
         barErrorColor = styles.getColor(R.styleable.OtpTextView_bar_error_color, ResourcesCompat.getColor(context.resources, R.color.red, null))
@@ -131,6 +133,9 @@ class ItemView : FrameLayout {
 
     fun setViewState(state: Int) {
         when (state) {
+            FILLED -> {
+                view?.setBackgroundColor(barFilledColor)
+            }
             ACTIVE -> {
                 view?.setBackgroundColor(barActiveColor)
                 this.setBackgroundResource(boxBackgroundColorActive)
@@ -153,6 +158,7 @@ class ItemView : FrameLayout {
     }
 
     companion object {
+        const val FILLED = 3
         const val ACTIVE = 1
         const val INACTIVE = 0
         const val ERROR = -1

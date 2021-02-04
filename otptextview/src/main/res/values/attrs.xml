@@ -27,6 +27,7 @@
         <attr name="bar_margin_top" format="dimension" />
         <attr name="otp_text_size" format="dimension" />
         <attr name="bar_active_color" format="color" />
+        <attr name="bar_filled_color" format="color" />
         <attr name="bar_inactive_color" format="color" />
         <attr name="bar_error_color" format="color" />
         <attr name="bar_success_color" format="color" />

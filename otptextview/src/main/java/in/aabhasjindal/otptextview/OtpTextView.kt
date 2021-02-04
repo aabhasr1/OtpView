@@ -133,8 +133,8 @@ class OtpTextView : FrameLayout {
                         otpListener.onOTPComplete(s.toString())
                     }
                 }
-                setOTP(s)
                 setFocus(s.length)
+                setOTP(s)
             }
 
             override fun afterTextChanged(s: Editable) {
@@ -145,11 +145,11 @@ class OtpTextView : FrameLayout {
 
     private fun setFocus(length: Int) {
         itemViews?.let { itemViews ->
-            for (i in itemViews.indices) {
+            itemViews.forEachIndexed { i, itemView ->
                 if (i == length) {
-                    itemViews[i].setViewState(ItemView.ACTIVE)
+                    itemView.setViewState(ItemView.ACTIVE)
                 } else {
-                    itemViews[i].setViewState(ItemView.INACTIVE)
+                    itemView.setViewState(ItemView.INACTIVE)
                 }
             }
             if (length == itemViews.size) {
@@ -160,11 +160,12 @@ class OtpTextView : FrameLayout {
 
     fun setOTP(s: CharSequence) {
         itemViews?.let { itemViews ->
-            for (i in itemViews.indices) {
+            itemViews.forEachIndexed { i, itemView ->
                 if (i < s.length) {
-                    itemViews[i].setText(s[i].toString())
+                    itemView.setText(s[i].toString())
+                    itemView.setViewState(ItemView.FILLED)
                 } else {
-                    itemViews[i].setText("")
+                    itemView.setText("")
                 }
             }
         }

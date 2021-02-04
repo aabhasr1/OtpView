@@ -42,6 +42,7 @@
         app:bar_enabled="true"
         app:bar_error_color="@color/red"
         app:bar_height="1.5dp"
+        app:bar_filled_color="@color/colorPrimary"
         app:bar_inactive_color="@color/whiteoff"
         app:bar_margin_bottom="0dp"
         app:bar_margin_left="2dp"

@@ -132,6 +132,7 @@ Thats all for now but new additions will be made frequently.
 | app:bar_margin_bottom           | sets the bar bottom margin within each box in otp view       |
 | app:bar_active_color            | sets the bar color when the cursor is on the box in otp view |
 | app:bar_inactive_color          | sets the bar color when the cursor is not on the box in otp view |
+| app:bar_filled_color            | sets the bar color when the box in otp view has been filled  |
 | app:bar_error_color             | sets the bar color for error state in otp view               |
 | app:bar_success_color           | sets the bar color for success state in otp view             |
 | app:otp_box_background          | sets the box background in otp view                          |

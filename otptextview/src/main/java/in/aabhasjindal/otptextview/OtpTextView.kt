@@ -149,7 +149,11 @@ class OtpTextView : FrameLayout {
                 if (i == length) {
                     itemViews[i].setViewState(ItemView.ACTIVE)
                 } else {
-                    itemViews[i].setViewState(ItemView.INACTIVE)
+                    if (otp?.isNotEmpty() == true && i < length && otp?.get(i) != null) {
+                        itemViews[i].setViewState(ItemView.FILLED)
+                    } else {
+                        itemViews[i].setViewState(ItemView.INACTIVE)
+                    }
                 }
             }
             if (length == itemViews.size) {

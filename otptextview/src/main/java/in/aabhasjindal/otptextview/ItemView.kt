@@ -134,7 +134,6 @@ class ItemView : FrameLayout {
     fun setViewState(state: Int) {
         when (state) {
             FILLED -> {
-                view?.setBackgroundColor(barActiveColor)
                 this.setBackgroundResource(boxBackgroundColorFilled)
             }
             ACTIVE -> {

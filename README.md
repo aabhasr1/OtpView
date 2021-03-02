@@ -126,6 +126,7 @@ Thats all for now but new additions will be made frequently.
 | app:otp_box_background_inactive | sets the box background when the cursor is not on the box in otp view |
 | app:otp_box_background_error | sets the box background for error state in otp view |
 | app:otp_box_background_success | sets the box background for success state in otp view |
+| app:otp_box_background_filled | sets the box background when otp view has value and the cursor is not on the box in |
 
 ## Author
 Maintained by  [Aabhas Jindal](https://github.com/aabhasr1)

@@ -31,5 +31,6 @@
         <attr name="bar_error_color" format="color" />
         <attr name="bar_success_color" format="color" />
         <attr name="text_typeface" format="string" />
+        <attr name="hide_bar_after_text_entered" format="boolean" />  <!--if true hides bottom bar after text entered to particular bar. e.g. 1 2 3 _ _ _ -->
     </declare-styleable>
 </resources>

@@ -108,6 +108,13 @@ class OtpTextView : FrameLayout {
         }
     }
 
+    fun setDigitTheme(themes: List<DigitTheme>) {
+        itemViews?.forEachIndexed { index, itemView ->
+            itemView.setDigitTheme(themes[index % themes.size])
+            itemView.setViewState(ItemView.INACTIVE)
+        }
+    }
+
     private fun setTextWatcher(otpChildEditText: OTPChildEditText?) {
         otpChildEditText?.addTextChangedListener(object : TextWatcher {
             /**

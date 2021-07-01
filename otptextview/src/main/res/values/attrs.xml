@@ -17,6 +17,7 @@
         <attr name="bar_enabled" format="boolean" />
         <attr name="otp_box_background" format="reference" />
         <attr name="otp_box_background_active" format="reference" />
+        <attr name="otp_box_background_filled" format="reference" />
         <attr name="otp_box_background_inactive" format="reference" />
         <attr name="otp_box_background_success" format="reference" />
         <attr name="otp_box_background_error" format="reference" />

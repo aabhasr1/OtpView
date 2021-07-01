@@ -1,5 +1,6 @@
 package `in`.aabhasjindal.otpview
 
+import `in`.aabhasjindal.otptextview.DigitTheme
 import `in`.aabhasjindal.otptextview.OTPListener
 import `in`.aabhasjindal.otptextview.OtpTextView
 import android.os.Build
@@ -25,6 +26,13 @@ class MainActivity : AppCompatActivity() {
         val successButton = findViewById<Button>(R.id.button2)
         otpTextView = findViewById(R.id.otp_view)
         otpTextView?.requestFocusOTP()
+        otpTextView?.setDigitTheme(
+            listOf(
+                DigitTheme(R.drawable.bg_otp_box, R.drawable.bg_otp_box_error, R.drawable.bg_otp_box_success),
+                DigitTheme(R.drawable.bg_otp_box_error, R.drawable.bg_otp_box_error, R.drawable.bg_otp_box_success),
+                DigitTheme(R.drawable.bg_otp_box_success, R.drawable.bg_otp_box_error, R.drawable.bg_otp_box)
+            )
+        )
         otpTextView?.otpListener = object : OTPListener {
             override fun onInteractionListener() {
 

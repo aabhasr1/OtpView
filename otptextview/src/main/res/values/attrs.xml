@@ -17,6 +17,7 @@
         <attr name="bar_enabled" format="boolean" />
         <attr name="otp_box_background" format="reference" />
         <attr name="otp_box_background_active" format="reference" />
+        <attr name="otp_box_background_filled" format="reference" />
         <attr name="otp_box_background_inactive" format="reference" />
         <attr name="otp_box_background_success" format="reference" />
         <attr name="otp_box_background_error" format="reference" />
@@ -27,6 +28,7 @@
         <attr name="bar_margin_top" format="dimension" />
         <attr name="otp_text_size" format="dimension" />
         <attr name="bar_active_color" format="color" />
+        <attr name="bar_filled_color" format="color" />
         <attr name="bar_inactive_color" format="color" />
         <attr name="bar_error_color" format="color" />
         <attr name="bar_success_color" format="color" />

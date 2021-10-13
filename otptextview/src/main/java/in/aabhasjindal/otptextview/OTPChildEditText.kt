@@ -22,7 +22,7 @@ internal class OTPChildEditText : androidx.appcompat.widget.AppCompatEditText {
         isCursorVisible = false
         setTextColor(context.resources.getColor(R.color.transparent))
         setBackgroundDrawable(null)
-        inputType = InputType.TYPE_CLASS_NUMBER
+        inputType = InputType.TYPE_CLASS_NUMBER and InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
         setSelectAllOnFocus(false)
         setTextIsSelectable(false)
     }

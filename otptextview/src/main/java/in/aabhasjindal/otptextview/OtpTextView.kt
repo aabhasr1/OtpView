@@ -72,18 +72,21 @@ class OtpTextView : FrameLayout {
             val spaceRight = styles.getDimension(R.styleable.OtpTextView_box_margin_right, Utils.getPixels(context, DEFAULT_SPACE_RIGHT).toFloat()).toInt()
             val spaceTop = styles.getDimension(R.styleable.OtpTextView_box_margin_top, Utils.getPixels(context, DEFAULT_SPACE_TOP).toFloat()).toInt()
             val spaceBottom = styles.getDimension(R.styleable.OtpTextView_box_margin_bottom, Utils.getPixels(context, DEFAULT_SPACE_BOTTOM).toFloat()).toInt()
-            val params = LinearLayout.LayoutParams(width, height)
+            val otpMatchParent = styles.getBoolean(R.styleable.OtpTextView_otp_box_match_parent, false)
+            val params = if (otpMatchParent) LinearLayout.LayoutParams(width, height, 1f)
+            else LinearLayout.LayoutParams(width, height)
             if (space > 0) {
                 params.setMargins(space, space, space, space)
             } else {
                 params.setMargins(spaceLeft, spaceTop, spaceRight, spaceBottom)
             }
 
-            val editTextLayoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            val editTextLayoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
             editTextLayoutParams.gravity = Gravity.CENTER
             otpChildEditText = OTPChildEditText(context)
             otpChildEditText?.filters = arrayOf(filter, InputFilter.LengthFilter(length))
             setTextWatcher(otpChildEditText)
+            setFocusDetection(otpChildEditText)
             addView(otpChildEditText, editTextLayoutParams)
 
 
@@ -127,14 +130,14 @@ class OtpTextView : FrameLayout {
              * @param count
              */
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                setOTP(s)
+                setFocus(s.length)
                 otpListener?.let { otpListener ->
                     otpListener.onInteractionListener()
                     if (s.length == length) {
                         otpListener.onOTPComplete(s.toString())
                     }
                 }
-                setOTP(s)
-                setFocus(s.length)
             }
 
             override fun afterTextChanged(s: Editable) {
@@ -143,11 +146,33 @@ class OtpTextView : FrameLayout {
         })
     }
 
+    /**
+     * added by pth
+     */
+    private fun setFocusDetection(otpChildEditText: OTPChildEditText?) {
+        otpChildEditText?.onFocusChangeListener = OnFocusChangeListener { view, b ->
+            if (view.isFocused) {
+                otp?.let {
+                    setFocus(it.length)
+                }
+            } else {
+                otp?.let {
+                    setFocus(-1)
+                }
+            }
+        }
+    }
+
+    /**
+     * modified by pth
+     */
     private fun setFocus(length: Int) {
         itemViews?.let { itemViews ->
             for (i in itemViews.indices) {
                 if (i == length) {
-                    itemViews[i].setViewState(ItemView.ACTIVE)
+                    if (otpChildEditText?.isFocused == true)
+                        itemViews[i].setViewState(ItemView.ACTIVE)
+                    else itemViews[i].setViewState(ItemView.INACTIVE)
                 } else {
                     itemViews[i].setViewState(ItemView.INACTIVE)
                 }

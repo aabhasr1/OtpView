@@ -31,5 +31,6 @@
         <attr name="bar_error_color" format="color" />
         <attr name="bar_success_color" format="color" />
         <attr name="text_typeface" format="string" />
+        <attr name="otp_box_match_parent" format="boolean"/>
     </declare-styleable>
 </resources>
